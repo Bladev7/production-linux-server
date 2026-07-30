@@ -1,68 +1,150 @@
-01 - Initial Server Access
-
-\# Verify network configuration
+\# 01 - Initial Server Access
 
 
+
+> Verify that the Ubuntu Server is operational and accessible remotely before applying any security hardening.
+
+
+
+---
+
+
+
+\## Check Server IP Address
+
+
+
+```console
 
 root@ubuntu:~# ip addr
 
+```
 
 
-2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER\_UP>
 
-&nbsp;   inet 192.168.231.131/24
-
-\# Verify SSH service
+Identify the server's IPv4 address.
 
 
+
+---
+
+
+
+\## Verify SSH Service
+
+
+
+```console
 
 root@ubuntu:~# systemctl status ssh
 
+```
 
 
-● ssh.service - OpenBSD Secure Shell server
 
-&nbsp;    Loaded: loaded (/usr/lib/systemd/system/ssh.service)
-
-&nbsp;    Active: active (running)
-
-\# Verify SSH listening port
+Expected:
 
 
+
+```text
+
+Active: active (running)
+
+```
+
+
+
+---
+
+
+
+\## Verify SSH Listening Port
+
+
+
+```console
 
 root@ubuntu:~# ss -tulnp | grep :22
 
-
-
-LISTEN 0      128      0.0.0.0:22
-
-LISTEN 0      128         \[::]:22
-
-\# Test SSH connection from the client
+```
 
 
 
-PS C:\\Users\\user> ssh aymanserver@192.168.231.131
+Expected:
 
 
 
-Welcome to Ubuntu 24.04 LTS
+```text
 
-\# Verification
+LISTEN ... :22
 
-
-
-\[✓] SSH service is running
-
-\[✓] Port 22 is listening
-
-\[✓] Remote SSH connection established
-
-\# Result
+```
 
 
 
-Phase 01 completed successfully.
+---
 
-Next: 02 - User Management
+
+
+\## Test Remote SSH Connection
+
+
+
+```console
+
+PS C:\\Users\\user> ssh <username>@<server-ip>
+
+```
+
+
+
+Expected:
+
+
+
+```text
+
+Welcome to Ubuntu
+
+```
+
+
+
+---
+
+
+
+\## Verification
+
+
+
+\- \[x] SSH service is running.
+
+\- \[x] SSH is listening on TCP port 22.
+
+\- \[x] Remote SSH connection established successfully.
+
+
+
+---
+
+
+
+\## Security Notes
+
+
+
+\- Initial server connectivity verified.
+
+\- No security hardening has been applied yet.
+
+\- Ready for Phase 02.
+
+
+
+---
+
+
+
+✓ Phase 01 Completed
 
