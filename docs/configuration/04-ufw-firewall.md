@@ -37,10 +37,7 @@ ufw set to manually installed.
 
 
 > \*\*Note\*\*
-
->
-
-> UFW is included with Ubuntu by default. On a fresh Ubuntu Server installation, it is typically pre-installed but disabled. Running the installation command verifies that the package is installed and installs it only if it is missing.
+ UFW is included with Ubuntu by default. On a fresh Ubuntu Server installation, it is typically pre-installed but disabled. Running the installation command verifies that the package is installed and installs it only if it is missing.
 
 
 
